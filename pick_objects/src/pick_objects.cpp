@@ -3,7 +3,8 @@
 #include <actionlib/client/simple_action_client.h>
 
 // Define a client to send a goal requests to the move_base server through a SimpleActionClient
-
+float pickUpGoal[3] = { -5.0, -2.0, 1.0};
+float dropOffGoal[3] = { 4.0, -0.3, 1.0};
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
 int main(int argc, char** argv)
@@ -31,9 +32,9 @@ int main(int argc, char** argv)
 	if(!pick)
 	{
 		// Define a position and orientation for the robot to reach
-		goal.target_pose.pose.position.x = 15.0;
-		goal.target_pose.pose.position.y = 0.0;
-		goal.target_pose.pose.orientation.w = 1.0;
+		goal.target_pose.pose.position.x = pickUpGoal[0]; //10
+		goal.target_pose.pose.position.y = pickUpGoal[1]; //5
+		goal.target_pose.pose.orientation.w = pickUpGoal[2];
 
 		// Send the goal position and orientation for the robot to reach
 		ROS_INFO("Sending goal");
@@ -56,9 +57,9 @@ int main(int argc, char** argv)
 	if(!drop)
 	{
 		// Define a position and orientation for the robot to reach
-		goal.target_pose.pose.position.x = 15.0;
-		goal.target_pose.pose.position.y = 6.0;
-		goal.target_pose.pose.orientation.w = 1.0;
+		goal.target_pose.pose.position.x = dropOffGoal[0]; //-11
+		goal.target_pose.pose.position.y = dropOffGoal[1]; //1
+		goal.target_pose.pose.orientation.w = dropOffGoal[2];
 
 		// Send the goal position and orientation for the robot to reach
 		ROS_INFO("Sending goal");
