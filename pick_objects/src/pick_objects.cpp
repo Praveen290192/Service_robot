@@ -1,10 +1,12 @@
+/* Using navigation stack for sending a goal to drive the robot_base from one location to another location */
+
 #include <ros/ros.h>
 #include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
 
 // Define a client to send a goal requests to the move_base server through a SimpleActionClient
-float pickUpGoal[3] = { -5.0, -2.0, 1.0};
-float dropOffGoal[3] = { 4.0, -0.3, 1.0};
+float pickUpGoal[3] = { -2.0, 2.0, 1.0};
+float dropOffGoal[3] = { 5.0, -1.2, 1.0};
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
 int main(int argc, char** argv)
@@ -27,7 +29,7 @@ int main(int argc, char** argv)
 	bool drop = false;
 	
 	// set up the frame parameters
-	goal.target_pose.header.frame_id = "map";
+	goal.target_pose.header.frame_id = "odom";
 	goal.target_pose.header.stamp = ros::Time::now();
 	if(!pick)
 	{

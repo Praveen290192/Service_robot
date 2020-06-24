@@ -1,3 +1,5 @@
+/* Generating markers for visualization of the robot's pick and drop locations that will also resembles the picking and droping action by the robot */
+
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
 #include <nav_msgs/Odometry.h>
@@ -6,8 +8,8 @@ bool pick = false;
 bool drop = false;
 bool objPick = false;
 
-float pickUpGoal[3] = { -5.0, -2.0, 1.0};
-float dropOffGoal[3] = { 4.0, -0.3, 1.0};
+float pickUpGoal[3] = { -2.0, 2.0, 1.0};
+float dropOffGoal[3] = { 5.0, -1.2, 1.0};
 float delta = 0.2 ;
 
 //Flags
@@ -58,7 +60,7 @@ int main( int argc, char** argv )
   {
     visualization_msgs::Marker marker;
     // Set the frame ID and timestamp.  See the TF tutorials for information on these.
-    marker.header.frame_id = "map";
+    marker.header.frame_id = "odom";
     marker.header.stamp = ros::Time::now();
 
     // Set the namespace and id for this marker.  This serves to create a unique ID
