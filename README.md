@@ -1,6 +1,14 @@
 # Service_robot
 This project contains the packages for robot to localize itself in the environment and travel to the target location for object pickup and drop
 
+## Video Link
+Unfamiliar environment
+https://youtu.be/5DhNemCUV1k
+
+Familiar environment
+https://youtu.be/MEmC2viKCUY
+
+## Cloning Repository
 clone the repository in catkin_ws
 then perform catkin_make
 
